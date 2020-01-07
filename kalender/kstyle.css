@@ -1,0 +1,92 @@
+* {
+  	box-sizing: border-box;
+  	font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+  	font-size: 16px;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+html {
+	background-color: #fff; /* im Internet Explorer ist manchmal die Standard Hintergrundfarbe nicht weiß, deshalb setzen wir es manuell */
+	color: #111; /* auch hier eine Farbe ähnelnd zu schwarz, aber nicht so grell */
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+ .kalenderform {
+	 text-align: center;
+	 padding: 10px 15px 0px 15px;
+	 font-weight: normal;
+	 width: 600px;
+	 background-color: #ffffff;
+	 box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
+	 margin: 100px auto;
+ }
+.kalenderform h1 {
+	text-align: center;
+	color: #5b6574;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+	border-bottom: 1px solid #dee0e4;
+}
+.kalenderform form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 20px;
+}
+.kalenderform form label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 50px;
+	background-color: #3274d6;
+	color: #ffffff;
+}
+.kalenderform form input[type="bezeichnung"], .kalenderform form input[type="text"] {
+	 width: 310px;
+	 height: 50px;
+	 border: 1px solid #dee0e4;
+	 margin-bottom: 20px;
+	 padding: 0 15px;
+ }
+
+#startbez {
+	width: 200px;
+	height: 50px;
+	margin-bottom: 20px;
+	padding: 0 15px;
+}
+#startinp {
+	width: 310px;
+	height: 50px;
+	border: 1px solid #dee0e4;
+	margin-bottom: 20px;
+	padding: 0 15px;
+}
+#endbez {
+	width: 200px;
+	height: 50px;
+	margin-bottom: 20px;
+	padding: 0 15px;
+}
+#endinp {
+	width: 310px;
+	height: 50px;
+	border: 1px solid #dee0e4;
+	margin-bottom: 20px;
+	padding: 0 15px;
+}
+#sub01 {
+	width: 90%;
+	padding: 15px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background-color: #3274d6;
+	border: 0;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+	transition: background-color 0.2s;
+}
