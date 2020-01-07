@@ -22,9 +22,10 @@ if (!isset($_SESSION['loggedin'])) {
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1>Website Title</h1>
+
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+                <a href="home.php"><i class="fas fa-sign-out-alt"></i>Uebersicht</a>
 			</div>
 		</nav>
 		<div class="content">

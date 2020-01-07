@@ -12,14 +12,14 @@ if ( mysqli_connect_errno() ) {
 	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
-if ( !isset($_POST['username'], $_POST['password']) ) {
+if ( !isset($_POST['email'], $_POST['password']) ) {
 	// Could not get the data that should have been sent.
 	die ('Please fill both the username and password field!');
 }
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
-if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE email = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
-	$stmt->bind_param('s', $_POST['username']);
+	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
 	// Store the result so we can check if the account exists in the database.
 	$stmt->store_result();
@@ -34,14 +34,14 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 		// Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
 		session_regenerate_id();
 		$_SESSION['loggedin'] = TRUE;
-		$_SESSION['name'] = $_POST['username'];
+		$_SESSION['name'] = $_POST['email'];
 		$_SESSION['id'] = $id;
 		header('Location: home.php');
 	} else {
 		echo 'Incorrect password!';
 	}
 } else {
-	echo 'Incorrect username!';
+	echo 'Incorrect email!';
 }
 $stmt->close();
 ?>
