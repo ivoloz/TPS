@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 08. Jan 2020 um 19:26
+-- Erstellungszeit: 09. Jan 2020 um 15:48
 -- Server-Version: 10.4.10-MariaDB
 -- PHP-Version: 7.3.12
 
@@ -50,7 +50,7 @@ CREATE TABLE `benutzer` (
   `rollenid` int(11) NOT NULL,
   `vorname` varchar(64) NOT NULL,
   `nachname` varchar(64) NOT NULL,
-  `e-mail` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
   `passwort` varchar(256) NOT NULL,
   `kaz_von` time NOT NULL,
   `kaz_bis` time NOT NULL,
