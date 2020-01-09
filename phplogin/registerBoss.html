@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Registrierung des Arbeitgebers</title>
+		<title>Register</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="register">
-			<h1>Zur Registrierung bitte Felder ausfuellen</h1>
-			<form action="registerBoss.php" method="post" autocomplete="off">
+			<h1>Register</h1>
+			<form action="register.php" method="post" autocomplete="off">
 				<label for="vorname">
 					<i class="fas fa-user"></i>
 				</label>
@@ -17,19 +17,16 @@
 				<label for="nachname">
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="nachname" placeholder="Nachname" id="nachname" required>
-				<label for="e-mail">
+				<input type="text" name="nachname" placeholder="Nachname" id="achname" required>
+				<label for="email">
 					<i class="fas fa-envelope"></i>
 				</label>
-				<input type="email" name="e-mail" placeholder="Email" id="e-mail" required>
-				<label for="passwort">
+				<input type="email" name="email" placeholder="Email" id="email" required>
+				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="passwort" placeholder="Passwort" id="passwort" required>
-				<label for="secret">
-					<i class="fas fa-lock"></i>
-				</label>
-				<input type="password" name="secret" placeholder="Geheimtext" id="secret" required>
+				<input type="password" name="password" placeholder="Passwort" id="password" required>
+
 				<input type="submit" value="Register">
 			</form>
 		</div>
