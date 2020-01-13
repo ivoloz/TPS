@@ -12,11 +12,12 @@ CloseCon($conn);
 include 'cad.php';
 
 $sql = "CREATE TABLE benutzerereignis(
-benutzerid int(11) PRIMARY KEY NOT NULL,
+benutzerid int(11)  NOT NULL,
   ereignisid int(11)  NOT NULL,
   bestaetigt tinyint(1) DEFAULT NULL,
   CONSTRAINT FOREIGN KEY (benutzerid) REFERENCES benutzer(benutzerid),
-  CONSTRAINT FOREIGN KEY (ereignisid) REFERENCES ereignis(ereignisid)
+  CONSTRAINT FOREIGN KEY (ereignisid) REFERENCES ereignis(ereignisid),
+  PRIMARY KEY (benutzerid, ereignisid)
 
 )";
 
