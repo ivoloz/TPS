@@ -12,18 +12,18 @@ if (mysqli_connect_errno()) {
 	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 // Now we check if the data was submitted, isset() function will check if the data exists.
-if (!isset($_POST['vorname'], $_POST['nachname'], $_POST['e-mail'], $_POST['passwort'])) {
+if (!isset($_POST['vorname'], $_POST['nachname'], $_POST['email'], $_POST['passwort'])) {
 	// Could not get the data that should have been sent.
 	die ('Please complete the registration form!');
 }
 // Make sure the submitted registration values are not empty.
-if (empty($_POST['vorname']) || empty($_POST['nachname']) || empty($_POST['e-mail']) || empty($_POST['passwort'])) {
+if (empty($_POST['vorname']) || empty($_POST['nachname']) || empty($_POST['email']) || empty($_POST['passwort'])) {
 	// One or more values are empty.
 	die ('Please complete the registration form');
 }
 
 // Email Validation
-if (!filter_var($_POST['e-mail'], FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	die ('Email is not valid!');
 }
 // Invalid Characters Validation
@@ -36,22 +36,21 @@ if (strlen($_POST['passwort']) > 20 || strlen($_POST['passwort']) < 5) {
 }
 
 // We need to check if the account with that username exists.
-if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE e-mail = ?')) {
+if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE email = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), hash the password using the PHP password_hash function.
-	$stmt->bind_param('s', $_POST['e-mail']);
+	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
 	$stmt->store_result();
 	// Store the result so we can check if the account exists in the database.
 	if ($stmt->num_rows > 0) {
 		// Username already exists
 		echo 'Email exists, please choose another!';
-	} else if ($stmt = $con->prepare('INSERT INTO benutzer (vorname, nachname, e-mail, passwort,
- kaz_von, kaz_bis, max_gesamtstunden, max_ueberstunden, rollenid) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0)')) {
+	} else if ($stmt = $con->prepare('INSERT INTO benutzer (rollenid, vorname, nachname, email, passwort, kaz_von, kaz_bis,max_gesamtstunden, max_ueberstunden) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
         // We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $password = password_hash($_POST['passwort'], PASSWORD_DEFAULT);
      //   $uniqid = uniqid();
-        $stmt->bind_param('ssssssss', $_POST['vorname'], $_POST['nachname'], $_POST['e-mail'],$password,
-            $_POST['kaz_von'],  $_POST['kaz_bis'],  $_POST['max_gesamtstunden'], $_POST['max_ueberstunden']);
+        $roleid = 0;
+        $stmt->bind_param('sssssssss', $roleid,$_POST['vorname'], $_POST['nachname'], $_POST['email'],$password, $_POST['kaz_von'],  $_POST['kaz_bis'],  $_POST['max_gesamtstunden'], $_POST['max_ueberstunden']);
         $stmt->execute();
         try {
             // Create the SMTP Transport
@@ -72,7 +71,7 @@ if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE e-mai
             $message->setFrom(['david.himmelstoss@gmail.com' => 'noreply']);
 
             // Set the "To address" [Use setTo method for multiple recipients, argument should be array]
-            $message->addTo($_POST['e-mail'],$_POST['vorname']);
+            $message->addTo($_POST['email'],$_POST['vorname']);
 
 
             // Set the plain-text "Body"
@@ -108,7 +107,7 @@ if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE e-mai
     }
 	$stmt->close();
 } else {
-	// Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.
+	// Something is wrong with the sql statement, check to make sure benutzer table exists with all fields.
 	echo 'Could not prepare statement!';
 }
 $con->close();

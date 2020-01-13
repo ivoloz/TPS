@@ -12,18 +12,18 @@ if (mysqli_connect_errno()) {
 	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 // Now we check if the data was submitted, isset() function will check if the data exists.
-if (!isset($_POST['vorname'], $_POST['nachname'], $_POST['e-mail'], $_POST['passwort'], $_POST['secret'])) {
+if (!isset($_POST['vorname'], $_POST['nachname'], $_POST['email'], $_POST['passwort'], $_POST['secret'])) {
 	// Could not get the data that should have been sent.
 	die ('Please complete the registration form!');
 }
 // Make sure the submitted registration values are not empty.
-if (empty($_POST['vorname']) || empty($_POST['nachname']) || empty($_POST['e-mail']) || empty($_POST['passwort']) || empty($_POST['secret'])) {
+if (empty($_POST['vorname']) || empty($_POST['nachname']) || empty($_POST['email']) || empty($_POST['passwort']) || empty($_POST['secret'])) {
 	// One or more values are empty.
 	die ('Please complete the registration form');
 }
 
 // Email Validation
-if (!filter_var($_POST['e-mail'], FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	die ('Email is not valid!');
 }
 // Invalid Characters Validation
@@ -40,10 +40,12 @@ $secret = password_hash('schneewittchen' ,PASSWORD_DEFAULT);
 // We need to check if the account with that username exists.
 
 
-if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE e-mail = ?')) {
+if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE email = ?')) {
+
+echo '111';
 
 	// Bind parameters (s = string, i = int, b = blob, etc), hash the password using the PHP password_hash function.
-	$stmt->bind_param('s', $_POST['e-mail']);
+	$stmt->bind_param('s', $_POST['email']);
 	$stmt->execute();
 	$stmt->store_result();
 	// Store the result so we can check if the account exists in the database.
@@ -51,16 +53,42 @@ if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE e-mai
         // Username already exists
         echo 'Email exists, please choose another!';
     }else if (password_verify($_POST['secret'], $secret)) {
+echo '222';
  //        ($_POST['secret'] == 'schneewittchen'){
  //           echo 'TEST'.$_POST['secret']; //TEST
-            if ($stmt = $con->prepare('INSERT INTO benutzer (vorname, nachname, e-mail, passwort, rollenid) VALUES (?, ?, ?, ?, 1)')) {
+            if ($stmt = $con->prepare('INSERT INTO benutzer( rollenid, vorname, nachname, email, passwort, kaz_von, kaz_bis,max_gesamtstunden, max_ueberstunden) 
+ VALUES ( ?, ?, ?, ?, ?, ?,?,?,?)')) {
+    echo '333';
+
                 // We do not want to expose passwords in our database, so hash the password and use password_verify when a user logs in.
                 $password = password_hash($_POST['passwort'], PASSWORD_DEFAULT);
  //               $uniqid = uniqid();
 
                 $roleid = 1;
-                $stmt->bind_param('ssssi', $_POST['vorname'], $_POST['nachname'], $_POST['e-mail'], $password, $roleid);
-                $stmt->execute();
+                $arbeitgeberid =1;
+                $kaz_von = date("H:i:s", mktime(10, 00, 0));
+                $kaz_bis = date("H:i:s", mktime(15, 00, 0));
+                $max_gesamtstunden = 160;
+                $max_ueberstunden = 40;
+
+                echo $kaz_von;
+                echo $max_ueberstunden;
+
+$tmp = 'AAA';
+$tm3p = '1';
+
+              $stmt->bind_param('sssssssss',
+
+                   $roleid, $_POST['vorname'], $_POST['nachname'], $_POST['email'], $password, $kaz_von, $kaz_bis, $max_gesamtstunden, $max_ueberstunden);
+              try {
+                  $tmp2 = $stmt->execute();
+              } catch (Exception $e)    {
+                  echo $e;
+              }
+
+
+//               echo $stmt->errorCode();
+               echo 'XXX';
                 try {
                     // Create the SMTP Transport
                     $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
@@ -80,7 +108,7 @@ if ($stmt = $con->prepare('SELECT benutzerid, passwort FROM benutzer WHERE e-mai
                     $message->setFrom(['david.himmelstoss@gmail.com' => 'noreply']);
 
                     // Set the "To address" [Use setTo method for multiple recipients, argument should be array]
-                    $message->addTo($_POST['e-mail'], $_POST['vorname']);
+                    $message->addTo($_POST['email'], $_POST['vorname']);
 
 
                     // Set the plain-text "Body"
