@@ -1,4 +1,10 @@
 <?php
+//connect to DB
+require_once 'db_connection.php';
+
+
+
+
 // Set your timezone
 date_default_timezone_set('Europe/Berlin');
 // Get prev & next month
@@ -57,6 +63,8 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
         $week = '';
     }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="de">
