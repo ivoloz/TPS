@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Register</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		
+	</head>
+	<body>
+		<div class="register">
+			<h1>Bitte legen Sie hier die Mitarbeiterdaten an.</h1>
+			<form action="arbeitnehmererstellen.php" method="post" autocomplete="on">
+				<label for="vorname">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="vorname" placeholder="vorname" id="vorname" required></br>
+				
+				<label for="nachname">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="nachname" placeholder="nachname" id="nachname" required></br>
+				
+				<label for="email">
+					<i class="fas fa-envelope"></i>
+				</label>
+				<input type="email" name="email" placeholder="Email" id="email" required></br>
+				
+				
+			<label for="kaz_von">
+					<i class="fas fa-clock"></i>
+				</label>
+				<input type="kaz_von" name="kaz_von" placeholder="kaz_von" id="kaz_von" required></br>
+			
+			<label for="kaz_bis">
+					<i class="fas fa-clock"></i>
+				</label>
+				<input type="kaz_bis" name="kaz_bis" placeholder="kaz_bis" id="kaz_bis" required></br>
+				
+				<label for="max_gesamtstunden">
+					<i class="fas fa-clock"></i>
+				</label>
+				<input type="max_gesamtstunden" name="max_gesamtstunden" placeholder="max_gesamtstunden" id="max_gesamtstunden" required></br>
+				
+				<label for="max_ueberstunden">
+					<i class="fas fa-clock"></i>
+				</label>
+				<input type="max_ueberstunden" name="max_ueberstunden" placeholder="max_ueberstunden" id="max_ueberstunden" required></br>
+				
+				<input type="submit" value="Anlegen">
+			</form>
+		</div>
+	</body>
+</html>
