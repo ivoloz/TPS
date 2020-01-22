@@ -1,67 +1,125 @@
-<?php
-
-
-// We need to use sessions, so you should always start sessions using the below code.
+	<?php 
+	
+	// We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit();
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'phplogin';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	die ('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-// We don't have the password or email info stored in sessions so instead we can get the results from the database.
-$stmt = $con->prepare('SELECT password, email FROM accounts WHERE id = ?');
-// In this case we can use the account ID to get the account info.
-$stmt->bind_param('i', $_SESSION['id']);
-$stmt->execute();
-$stmt->bind_result($password, $email);
-$stmt->fetch();
-$stmt->close();
+
+
+$benutzerid = $_SESSION["id"];
+
+	
+$rollenid = $_SESSION["rollenid"];
 
 
 ?>
+	<?php if ($rollenid == 1): ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Profile Page</title>
+		<title>Übersichtsseite</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
-		<nav class="navtop">
+				<nav class="navtop">
 			<div>
-				<h1>Website Title</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<!-- <h1>Zeitapp</h1> -->
+				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
+				<a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
+				<a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
+				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+				<a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
+				<a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
+				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
 			</div>
 		</nav>
-		<div class="content">
-			<h2>Profile Page</h2>
+<div class="content">
+		
 			<div>
-				<p>Your account details are below:</p>
-				<table>
-					<tr>
-						<td>Username:</td>
-						<td><?=$_SESSION['name']?></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><?=$password?></td>
-					</tr>
-					<tr>
-						<td>Email:</td>
-						<td><?=$email?></td>
-					</tr>
-				</table>
+		
+				<a href="passwort.html"><i class="fa fa-user-circle"></i>Passwort ändern</a>
+
+			</div>
+		</div>
+		<div class="content">
+		
+			<div>
+		
+				<a href="logout.php"><i class="fa fa-user-circle"></i>Abmelden</a>
+
 			</div>
 		</div>
 	</body>
 </html>
+
+ <?php endif; ?>
+ 
+ 	<?php if ($rollenid == 2): ?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Übersichtsseite</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+				<nav class="navtop">
+			<div>
+				<!-- <h1>Zeitapp</h1> -->
+				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
+				<a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
+				<a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
+				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+				<a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
+				<a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
+				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
+			</div>
+		</nav>
+<div class="content">
+		
+			<div>
+				<a href="abrechnung.php"><i class="fa fa-home fa-fw"></i>Monatsabrechnung</a>
+			
+	
+			</div>
+		</div>
+		<div class="content">
+		
+			<div>
+				<a href="arbeitnehmerverwalten.php"><i class="fa fa-home fa-fw"></i>Arbeitnehmer verwalten</a>
+			
+	
+			</div>
+		</div>
+		<div class="content">
+		
+			<div>
+				<a href="passwort.html"><i class="fa fa-home fa-fw"></i>Passwort ändern</a>
+			
+	
+			</div>
+		</div>
+		<div class="content">
+		
+			<div>
+				<a href="logout.php"><i class="fa fa-home fa-fw"></i>Abmelden</a>
+			
+	
+			</div>
+		</div>
+	</body>
+</html>
+
+
+
+ <?php endif; ?>
+ 
+ 

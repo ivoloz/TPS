@@ -1,7 +1,8 @@
-<?php
 
 
-// We need to use sessions, so you should always start sessions using the below code.
+	<?php 
+	
+	// We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
@@ -9,9 +10,16 @@ if (!isset($_SESSION['loggedin'])) {
 	exit();
 }
 
-?>
 
-<!DOCTYPE html>
+$benutzerid = $_SESSION["id"];
+
+	
+$rollenid = $_SESSION["rollenid"];
+
+
+?>
+	
+	<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -21,7 +29,7 @@ if (!isset($_SESSION['loggedin'])) {
 	</head>
 	<body class="loggedin">
 
-		<nav class="navtop">
+				<nav class="navtop">
 			<div>
 				<!-- <h1>Zeitapp</h1> -->
 				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
@@ -33,12 +41,27 @@ if (!isset($_SESSION['loggedin'])) {
 				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
 			</div>
 		</nav>
-		<div class="content">
-			<p>Sie(<?=$_SESSION['name']?>) haben sich erfolgreich eingeloggt.</p>
+<div class="formular">
+<label>Erstanmeldung/Passwortänderung. Bitte ändern Sie ihr Passwort.</label></br>
+
+<form action="passwort.php" method="post" >
+    altes Passwort:<input type="password" name="passwort_alt" /></br>
+    neues Passwort:<input type="password" name="passwort_neu" /></br>
+	
+					<button onclick="goBack()">Abbrechen</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <input type="submit" value="Bestätigen" />
+    </form>
 
 
 
 
-		</div>
-	</body>
+
+</div>
+</body>
 </html>

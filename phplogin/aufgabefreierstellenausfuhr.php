@@ -1,7 +1,6 @@
-<?php
-
-
-// We need to use sessions, so you should always start sessions using the below code.
+	<?php 
+	
+	// We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
@@ -9,9 +8,13 @@ if (!isset($_SESSION['loggedin'])) {
 	exit();
 }
 
+$benutzerid = $_SESSION["id"];
+$rollenid = $_SESSION["rollenid"];
 ?>
 
-<!DOCTYPE html>
+<?php if ($rollenid == 2): ?>
+	  
+	  	<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -21,7 +24,7 @@ if (!isset($_SESSION['loggedin'])) {
 	</head>
 	<body class="loggedin">
 
-		<nav class="navtop">
+					<nav class="navtop">
 			<div>
 				<!-- <h1>Zeitapp</h1> -->
 				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
@@ -33,12 +36,35 @@ if (!isset($_SESSION['loggedin'])) {
 				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
 			</div>
 		</nav>
-		<div class="content">
-			<p>Sie(<?=$_SESSION['name']?>) haben sich erfolgreich eingeloggt.</p>
+
+<?php
+//CRUD in PHP and MySQL With Prepared Statements
+require_once 'aufgabefreierstelleneingabe.php';
+
+
+$beginn = $_POST["beginn"];
+$ende = $_POST["ende"];
+$bezeichnung = $_POST["bezeichnung"];
+$beschreibung = $_POST["beschreibung"];
+$status = 1;
+$prioritaet = $_POST["prioritaet"];
 
 
 
+$result = PreQuery($beginn, $ende,$bezeichnung, $beschreibung,$status, $prioritaet);
 
-		</div>
-	</body>
+if($result === true)
+{
+	echo 'Sie haben erfolgreich eine neue Aufgabe zur freien Verfügung erstellt.';
+	
+}
+else
+{
+	echo $result;
+}
+?>
+
+</body>
 </html>
+
+<?php endif; ?>

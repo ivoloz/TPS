@@ -20,25 +20,19 @@ if (!isset($_SESSION['loggedin'])) {
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
 	<body class="loggedin">
-
 		<nav class="navtop">
 			<div>
 				<!-- <h1>Zeitapp</h1> -->
 				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
 				<a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
-				<a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
-				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
-				<a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
-				<a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
+				<a href="arbeitszeiten.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
+				<a href="nichtverfuegbar.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+				<a href="aufgaben.php"><i class="fa fa-tasks"></i>Aufgaben</a>
+				<a href="meetings.php"><i class="fa fa-user-circle"></i>Meetings</a>
 				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
+				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Ausloggen</a>
 			</div>
 		</nav>
-		<div class="content">
-			<p>Sie(<?=$_SESSION['name']?>) haben sich erfolgreich eingeloggt.</p>
 
-
-
-
-		</div>
 	</body>
 </html>
