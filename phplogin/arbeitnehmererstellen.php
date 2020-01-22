@@ -1,12 +1,49 @@
-<?php
-
-// We need to use sessions, so you should always start sessions using the below code.
+	  
+	<?php 
+	
+	// We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit();
 }
+
+
+$benutzerid = $_SESSION["id"];
+
+	
+$rollenid = $_SESSION["rollenid"];
+
+
+?>
+	<?php if ($rollenid == 2): ?>
+	  
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Übersichtsseite</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+
+				<nav class="navtop">
+			<div>
+				<!-- <h1>Zeitapp</h1> -->
+				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
+				<a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
+				<a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
+				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+				<a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
+				<a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
+				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
+			</div>
+		</nav>
+
+<?php
+
 
 
 require_once './vendor/autoload.php';
@@ -44,7 +81,7 @@ if (preg_match('/[A-Za-z0-9]+/', $_POST['vorname']) == 0) {
     die ('vorname is not valid!');
 }
 
-$pw = random_int (1000 , 9999 );
+$pw = random_int (100000 , 999999 );
 echo $pw;
 
 $pwhashed = password_hash($pw , PASSWORD_DEFAULT);
@@ -97,7 +134,7 @@ try {
 
 
            // Set the plain-text "Body"
-            $message->setBody( '<a href="http://localhost/phplogin/index.html">Klicken SIe hier zum Login</a><p>$pw</p>', 'text/html'
+            $message->setBody( '<p>Danke das Sie sich für das Zeitaufzeichnungssystem entschieden haben.</p><p> Ihr Passwort entnehmen Sie bitte im Betreff.</p><p> Bitte ändern Sie ihr Passwort bei der Erstanmeldung.</p><p> Um die Registrierung abzuschliessen klicken Sie bitte auf folgenden Link</p><a href="http://localhost/phplogin/index.html">Klicken SIe hier zum Login</a><p></p>', 'text/html'
 
 			);
 
@@ -123,7 +160,7 @@ try {
     $message = '<p>Please click the following link to activate your account: <a href="' . $activate_link . '">' . $activate_link . '</a></p>';
     mail($_POST['email'], $subject, $message, $headers);
    */
-    echo 'Please check your email to activate your account!';
+    echo 'Sie haben erfolgreich einen neuen Mitarbeiter angelegt! Eine entsprechende Aktivierungs-Email wurde versendet!';
 } else {
 	// Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.
 	echo 'Could not prepare statement!';
@@ -138,3 +175,18 @@ try {
 
 $con->close();
 ?>
+
+ 	</body>
+</html>
+<br>
+<a href="arbeitnehmererstellen.html"><button>Aufgabe zuweisen</button></a>
+
+		<button onclick="goBack()">Zurück</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script> 
+ 
+ <?php endif; ?>

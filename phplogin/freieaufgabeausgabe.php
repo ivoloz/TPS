@@ -77,13 +77,13 @@ echo "<tr>";
  echo "<td>" . $row['bezeichnung']. "</td>"; 
   echo "<td>" . $row['beschreibung']. "</td>"; 
   if ($row['status']==1){
-	 echo "<td>verfÃ¼gbar</td>";
+	 echo "<td>verfügbar</td>";
  }	 else{
 	  echo "<td>zugewiesen</td>";
  }
     echo "<td>" . $row['prioritaet']. "</td>"; 
 	 if ($row['status']==1) {
-	echo "<td><a href='aufgabezuweisen.php?aufgabeid=".$row['aufgabeid']."'>auswahl</a></td>";
+	echo "<td><a href='aufgabezuweisen.php?aufgabeid=".$row['aufgabeid']."'><button>Auswahl</button></a></td>";
 	} else { 
 	echo false;}	
 
@@ -104,5 +104,13 @@ else
  
 </body>
 </html>
+
+<button onclick="goBack()">Zurück</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 
 <?php endif; ?>

@@ -83,6 +83,7 @@ $query = 'SELECT TIME(ende-beginn) AS zeit FROM `erfasstearbeitszeit` where benu
 	return $time_von_sql;
 
 ?>
+
 </body>
 </html>
 

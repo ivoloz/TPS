@@ -93,8 +93,8 @@ if ($row['bestatigt']==1){
  echo "<td>" . $row['beschreibung']. "</td>"; 
  
   if ($row['bestatigt']==1) {
-			 echo "<td><a href='meetingablehnen.php?benutzerereignisid=".$row['benutzerereignisid']."'>ablehnen</a></td>";
-		 echo "<td><a href='meetingannehmen.php?benutzerereignisid=".$row['benutzerereignisid']."'>annehmen</a></td>";
+			 echo "<td><a href='meetingablehnen.php?benutzerereignisid=".$row['benutzerereignisid']."'><button>ablehnen</button></a></td>";
+		 echo "<td><a href='meetingannehmen.php?benutzerereignisid=".$row['benutzerereignisid']."'><button>annehmen</button></a></td>";
 	} 
 
   
@@ -226,6 +226,17 @@ if($result != "zero")
 		?>
     </select></br>
 	
+<input type="submit" value="Mitarbeiter auswählen"></br>
+
+
+	
+</form>
+</div>
+</body>
+</html>
+
+<a href="meeting.php"><button>Hinzufügen</button></a></br>
+
 	<button onclick="goBack()">Zurück</button>
 
 <script>
@@ -235,13 +246,5 @@ function goBack() {
 </script>
 
 
-<input type="submit" value="Mitarbeiter auswählen"></br>
 
-
-	
-</form>
-</div>
-</body>
-</html>
-<a href="meeting.php"><i class="fa fa-tasks"></i>Hinzufügen</a></br>
 <?php endif; ?>

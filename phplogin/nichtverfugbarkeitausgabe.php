@@ -99,7 +99,7 @@ else
  </table>
    </body>
    </html>
-<a href="nichtverfugbarkeit.php"><i class="fas fa-sign-out-alt"></i>Nicht-Verfügbarkeit hinzufügen</a>
+<a href="nichtverfugbarkeit.php"><button>Nicht-Verfügbarkeit hinzufügen</button></a>
 
 <?php endif; ?>
 

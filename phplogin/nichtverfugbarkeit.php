@@ -58,6 +58,16 @@ $rollenid = $_SESSION["rollenid"];
 <label for="beschreibung" >Beschreibung:</label>
 <input type="text" name="beschreibung"	placeholder="beschreibung" id="beschreibung" required></br>
 
+
+
+<input type="submit" value="Nicht-Verfügbarkeit erstellen">
+
+
+</form>
+</div>
+</body>
+</html>
+
 <button onclick="goBack()">Zurück</button>
 
 <script>
@@ -65,13 +75,5 @@ function goBack() {
   window.history.back();
 }
 </script>
-
-<input type="submit" value="Nicht-Verfügbarkeit erstellen"></br>
-
-
-</form>
-</div>
-</body>
-</html>
 
 <?php endif; ?>

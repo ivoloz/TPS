@@ -104,7 +104,7 @@ else
 
 ?>
  </table>
- <a href="arbeitnehmererstellen.html"><i class="fa fa-tasks"></i>Hinzufügen</a></br>
+ <a href="arbeitnehmererstellen.html"><button>Hinzufügen</button></a></br>
  
  	</body>
 </html>

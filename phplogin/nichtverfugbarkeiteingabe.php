@@ -33,7 +33,7 @@ function PreQuery2($beginn, $ende,$bezeichnung,$beschreibung)
 	$statement->execute();
 	$result = selectdata($query);
 	$result2 = $result->fetch_row();
-	echo $result2[0];
+
 	return $result2[0];
 }
 

@@ -66,5 +66,14 @@ else
 
 </body>
 </html>
+<br>
+		<button onclick="goBack()">Zurück</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+<a href="aufgabefreierstellen.html"><button>Weitere freie Aufgabe erstellen.</button></a><br>
 
 <?php endif; ?>

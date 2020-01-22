@@ -33,7 +33,7 @@ function PreQuery2($beginn, $ende,$bezeichnung,$beschreibung)
 	$statement->execute();
 	$result = selectdata($query);
 	$result2 = $result->fetch_row();
-	echo 'MEETINGID: '.$result2[0]."<br>";
+	//echo 'MEETINGID: '.$result2[0]."<br>";
 	return $result2[0];
 }
 

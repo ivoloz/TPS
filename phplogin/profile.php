@@ -43,7 +43,7 @@ $rollenid = $_SESSION["rollenid"];
 		
 			<div>
 		
-				<a href="passwort.html"><i class="fa fa-user-circle"></i>Passwort ändern</a>
+				<a href="passwort.html"><button><i class="fa fa-user-circle"></i>Passwort ändern</button></a>
 
 			</div>
 		</div>
@@ -51,7 +51,7 @@ $rollenid = $_SESSION["rollenid"];
 		
 			<div>
 		
-				<a href="logout.php"><i class="fa fa-user-circle"></i>Abmelden</a>
+				<a href="logout.php"><button><i class="fa fa-user-circle"></i>Abmelden</button></a>
 
 			</div>
 		</div>
@@ -86,7 +86,7 @@ $rollenid = $_SESSION["rollenid"];
 <div class="content">
 		
 			<div>
-				<a href="abrechnung.php"><i class="fa fa-home fa-fw"></i>Monatsabrechnung</a>
+				<a href="abrechnung.php"><button><i class="fa fa-home fa-fw"></i>Monatsabrechnung</button></a>
 			
 	
 			</div>
@@ -94,7 +94,7 @@ $rollenid = $_SESSION["rollenid"];
 		<div class="content">
 		
 			<div>
-				<a href="arbeitnehmerverwalten.php"><i class="fa fa-home fa-fw"></i>Arbeitnehmer verwalten</a>
+				<a href="arbeitnehmerverwalten.php"><button><i class="fa fa-home fa-fw"></i>Arbeitnehmer verwalten</button></a>
 			
 	
 			</div>
@@ -102,7 +102,7 @@ $rollenid = $_SESSION["rollenid"];
 		<div class="content">
 		
 			<div>
-				<a href="passwort.html"><i class="fa fa-home fa-fw"></i>Passwort ändern</a>
+				<a href="passwort.html"><button><i class="fa fa-home fa-fw"></i>Passwort ändern</button></a>
 			
 	
 			</div>
@@ -110,7 +110,7 @@ $rollenid = $_SESSION["rollenid"];
 		<div class="content">
 		
 			<div>
-				<a href="logout.php"><i class="fa fa-home fa-fw"></i>Abmelden</a>
+				<a href="logout.php"><button><i class="fa fa-home fa-fw"></i>Abmelden</button></a>
 			
 	
 			</div>

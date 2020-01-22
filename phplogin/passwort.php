@@ -29,11 +29,11 @@
 	$passwort_neu_hashed = password_hash($_POST["passwort_neu"] , PASSWORD_DEFAULT);
 	$passwort_neu = $_POST["passwort_neu"];
 	
-	echo "PW alt: ".$passwort_alt."<br>";
-	echo "PW neu: ".$passwort_neu."<br>";
+	//echo "PW alt: ".$passwort_alt."<br>";
+	//echo "PW neu: ".$passwort_neu."<br>";
 	
 	$benutzerid = $_SESSION["id"];
-	echo "benutzerid: ".$benutzerid."<br>";
+	//echo "benutzerid: ".$benutzerid."<br>";
 
 
 include 'crud.php';
@@ -44,7 +44,7 @@ function PreQuery2($benutzerid){
 	$statement->execute();
 	$result = selectdata($query);
 	$result2 = $result->fetch_row();
-	echo "PW alt: ".$result2[0]."<br>";;
+	//echo "PW alt: ".$result2[0]."<br>";;
 	return $result2[0];
 }
 	
@@ -56,7 +56,7 @@ function PreQuery2($benutzerid){
 			
 			$conn = OpenCon();
 			$query = $conn->prepare('UPDATE benutzer SET passwort = "'.$pwne_hashed.'" WHERE benutzerid="'.$bid.'";');
-			echo 'UPDATE benutzer SET passwort = "'.$pwne_hashed.'" WHERE benutzerid="'.$bid.'";';
+			//echo 'UPDATE benutzer SET passwort = "'.$pwne_hashed.'" WHERE benutzerid="'.$bid.'";';
 			//$query->bind_param("ss", $pwne_hashed, $bid);
 			
 			
@@ -75,7 +75,7 @@ function PreQuery2($benutzerid){
 		UpdateQuery($benutzerid, $passwort_neu);
 		
 		
-		echo "Dein Passwort wurde erfolgreich ge&auml;ndert.";
+		echo "Dein Passwort wurde erfolgreich geändert.";
 	}
 		
 	else {
@@ -88,4 +88,14 @@ function PreQuery2($benutzerid){
 
 </body>
 </html>
+
+<br>
+<button onclick="goBack()">Zurück</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+
 

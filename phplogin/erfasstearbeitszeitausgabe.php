@@ -94,7 +94,7 @@ else
    </body>
    </html>
  
-   <a href="erfasstearbeitszeit.html"><i class="fa fa-tasks"></i>Arbeitszeiten erfassen</a></br>
+   <a href="erfasstearbeitszeit.html"><button>Arbeitszeiten erfassen</button></a></br>
    
  <?php endif; ?>
  

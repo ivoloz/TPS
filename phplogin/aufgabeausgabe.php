@@ -94,8 +94,8 @@ echo "<td>" . $row['benutzerid']."</td>";
 	 if ($row['status']==1) {
 	echo "<td><a href='aufgabezuweisen.php?aufgabeid=".$row['aufgabeid']."'>auswahl</a></td>";
 	} elseif ($row['status']==2) {
-		 echo "<td><a href='aufgabenichterledigt.php?aufgabeid=".$row['aufgabeid']."'> nicht erledigt</a></td>";
-		 echo "<td><a href='aufgabeerledigt.php?aufgabeid=".$row['aufgabeid']."'>erledigt</a></td>";
+		 echo "<td><a href='aufgabenichterledigt.php?aufgabeid=".$row['aufgabeid']."'><button> nicht erledigt</button></a></td>";
+		 echo "<td><a href='aufgabeerledigt.php?aufgabeid=".$row['aufgabeid']."'><button>erledigt</button></a></td>";
 	 }
 		
 
@@ -106,6 +106,7 @@ echo "<td>" . $row['benutzerid']."</td>";
 }
 else
 {
+	
  echo $result;
 }
 
@@ -113,7 +114,7 @@ else
  </table>
    </body>
    </html>
-   <a href="freieaufgabeausgabe.php"><i class="fa fa-tasks"></i>Freie Aufgaben ansehen</a></br>
+   <a href="freieaufgabeausgabe.php"><button>Freie Aufgaben ansehen</button></a></br>
    
 <?php endif; ?>
 
@@ -232,8 +233,21 @@ if($result != "zero")
 		}
 		
 		?>
-    </select></br>
+    </select><br>
 	
+
+<input type="submit" value="Mitarbeiter auswählen">
+
+	
+</form>
+</div>
+
+
+<a href="aufgabefreierstellen.html"><button>Freie Aufgabe hinzufügen</button></a><br>
+<a href="einfachzuweisung.php"><button>Aufgabe zuweisen</button></a><br>
+
+</body>
+</html>
 		<button onclick="goBack()">Zurück</button>
 
 <script>
@@ -243,18 +257,6 @@ function goBack() {
 </script>
 
 
-<input type="submit" value="Mitarbeiter auswählen"></br>
-
-
-
-	
-</form>
-</div>
-</body>
-</html>
-
-<a href="aufgabefreierstellen.html"><i class="fa fa-tasks"></i>Freie Aufgabe hinzufügen</a></br>
-<a href="einfachzuweisung.php"><i class="fa fa-tasks"></i>Aufgabe zuweisen</a></br>
 
 <?php endif; ?>
 

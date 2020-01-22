@@ -17,7 +17,7 @@ $sql = "CREATE TABLE benutzerereignis(
   nichtverfugbarkeitid int(11) NULL,
   aufgabeid int(11) NULL,
   meetingid int(11) NULL,
-  bestatigt int(11) DEFAULT 1;
+  bestatigt int(11) DEFAULT 1,
   CONSTRAINT FOREIGN KEY (benutzerid) REFERENCES benutzer(benutzerid),
   CONSTRAINT FOREIGN KEY (nichtverfugbarkeitid) REFERENCES nichtverfugbarkeit(nichtverfugbarkeitid),
   CONSTRAINT FOREIGN KEY (aufgabeid) REFERENCES aufgabe(aufgabeid),
