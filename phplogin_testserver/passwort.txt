@@ -1,0 +1,37 @@
+<?php
+	session_start();
+	$passwort_alt = md5($_POST["passwort_alt"]);
+	$passwort_neu = md5($_POST["passwort_neu"]);
+	$benutzerid = $_SESSION["id"];
+
+	echo $benutzerid;
+
+
+
+
+$pdo = new PDO('mysql:host=localhost;dbname=tps', 'root', '');
+
+
+
+	$abfrage = "SELECT passwort FROM benutzer WHERE benutzerid=$benutzerid";
+	$ergebnis = $abfrage;
+	$pw_alt = $ergebnis;
+
+	echo $pw_alt;
+
+
+
+
+
+
+	if ($pw_alt == $passwort_alt)
+	{$aendern = "UPDATE benutzer SET passwort = '$passwort_neu' WHERE benutzerid LIKE '$benutzerid'";
+	$update = mysql_query($aendern);
+	echo "Dein Passwort wurde erfolgreich ge&auml;ndert.";}
+
+
+
+
+	else
+	{echo "Das Passwort war falsch.";}
+	 ?>
