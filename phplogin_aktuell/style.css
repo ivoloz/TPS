@@ -289,3 +289,44 @@ body {
 	justify-content: center;
 	padding-top: 20px;
 }
+
+.loggedin2 {
+	background-color: white;
+}
+
+.formular2 {
+	background-color: white;
+	box-shadow: 5px 5px 15px grey;
+	text-align: center;
+	max-width: 500px;
+	padding: 5%;
+	margin: auto;
+	margin-top: 5%;
+}
+
+.formular2 label {
+	color: #5b6574;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+	margin-bottom: 5%;
+}
+
+.input2{
+	width: 310px;
+	height: 50px;
+	border: 1px solid #dee0e4;
+	margin-bottom: 20px;
+	padding: 0 15px;
+}
+
+.formular2 button, #input {
+	color: azure;
+	font-weight: bold;
+	background-color: #2868c7;
+	border: none;
+	padding: 15px 20px;
+}
+
+.formular2 button:hover, #input:hover {
+	background-color: #3274d6;
+}
