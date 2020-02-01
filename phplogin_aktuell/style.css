@@ -329,7 +329,24 @@ body {
 .formular2 button:hover, #input:hover {
 	background-color: #3274d6;
 }
-
+.formular3 {
+	background-color: white;
+}
+.formular3 label {
+	text-align: center;
+	align-items: center;
+	color: #5b6574;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+	border-bottom: 1px solid #dee0e4;
+}
+.formular3 form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 20px;
+	align-items: center;
+}
 
 
 
