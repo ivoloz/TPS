@@ -4,10 +4,19 @@
 		<meta charset="utf-8">
 		<title>Register</title>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<style>
+			body {
+				background: url("photo.jpg");
+				background-size: cover;
+			}
+		</style>
 	</head>
 	<body>
+
 		<div class="register">
+
+
 			<h1>Zur Registrierung bitte Felder ausfüllen.</h1>
 			<form action="arbeitgebererstellen.php" method="post" autocomplete="on">
 				<label for="vorname">
@@ -32,7 +41,7 @@
 				</label>
 				<input type="password" name="geheimtext" placeholder="geheimtext" id="geheimtext" required></br>
 				
-				<button onclick="goBack()">Zur�ck</button>
+				<button onclick="goBack()">Zurück</button>
                <script>
                 function goBack() {
                  window.history.back();
