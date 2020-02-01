@@ -268,24 +268,3 @@ body {
 	padding: 20px 0 20px 0;
 	border-bottom: 1px solid #dee0e4;
 }
-.formular {
-	width: 400px;
-	background-color: #ffffff;
-	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.3);
-	margin: 100px auto;
-	box-sizing: border-box;
-}
-
-.formular label {
-	text-align: right;
-	color: #5b6574;
-	font-size: 24px;
-	padding: 20px 0 20px 0;
-
-}
-.formular form {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding-top: 20px;
-}
