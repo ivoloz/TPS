@@ -7,12 +7,14 @@
 }
 body {
   	background-color: #435165;
+
 }
 .login {
   	width: 400px;
   	background-color: #ffffff;
   	box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
   	margin: 100px auto;
+
 }
 .login h1 {
   	text-align: center;
@@ -167,7 +169,7 @@ body {
   	background-color: #3274d6;
   	color: #ffffff;
 }
-.register form input[type="password"], .register form input[type="text"], .register form input[type="email"] {
+.register form input {
   	width: 310px;
   	height: 50px;
   	border: 1px solid #dee0e4;
@@ -175,7 +177,7 @@ body {
   	padding: 0 15px;
 }
 .register form input[type="submit"] {
-  	width: 100%;
+  	width: 50%;
   	padding: 15px;
   	margin-top: 20px;
   	background-color: #3274d6;
@@ -188,4 +190,102 @@ body {
 .register form input[type="submit"]:hover {
 	background-color: #2868c7;
   	transition: background-color 0.2s;
+}
+.register form button {
+	justify-content: left;
+	align-content: center;
+	border-color: azure;
+	margin: 10px;
+	background: dimgray;
+	cursor: pointer;
+	width: 50%;
+	padding: 15px;
+	margin-top: 20px;
+	flex-wrap: nowrap;
+}
+.loggedin h1 {
+	text-align: center;
+	color: #5b6574;
+	font-size: 24px;
+	padding: 5px 0 10px 0;
+	border-bottom: 5px solid #dee0e4;
+}
+.loggedin form {
+	padding: 5px;
+	position: fixed; top: 50%; left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	margin: 0 auto;
+	flex-basis: 100px;
+	clear:both;
+	text-align:right;
+}
+.loggedin form label {
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	background-color: #435165;
+	color: #ffffff;
+	flex-basis: 100px;
+}
+.loggedin form input {
+    justify-content: center;
+	align-content: center;
+	padding-top: 10px;
+    border-color: #435165;
+	padding-right:100px;
+	margin: 10px;
+}
+.loggedin form button {
+	justify-content: center;
+	align-content: center;
+	padding-top: 10px;
+	border-color: #435165;
+	padding-right:10px;
+	margin: 10px;
+	background: dimgray;
+	cursor: pointer;
+}
+.loggedin form button:hover {
+	background: #435165;
+}
+.loggedin form input [type="submit"] {
+	width: 100%;
+	padding: 15px;
+	margin-top: 20px;
+	background-color: #3274d6;
+	border: 0;
+	cursor: pointer;
+	font-weight: bold;
+	color: #ffffff;
+}
+.loggedin div {
+	text-align: center;
+	color: #5b6574;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+	border-bottom: 1px solid #dee0e4;
+}
+.formular {
+	width: 400px;
+	background-color: #ffffff;
+	box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.3);
+	margin: 100px auto;
+	box-sizing: border-box;
+}
+
+.formular label {
+	text-align: right;
+	color: #5b6574;
+	font-size: 24px;
+	padding: 20px 0 20px 0;
+
+}
+.formular form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 20px;
 }
