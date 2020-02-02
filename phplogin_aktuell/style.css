@@ -319,7 +319,7 @@ body {
 }
 
 .formular2 button, #input {
-	color: azure;
+	color: white;
 	font-weight: bold;
 	background-color: #2868c7;
 	border: none;
@@ -348,5 +348,12 @@ body {
 	align-items: center;
 }
 
+#button3, #button4 {
+	color: white;
+	font-weight: bold;
+	background-color: #2868c7;
+	border: none;
+	padding: 15px 20px;
+}
 
 
