@@ -76,10 +76,10 @@ $benutzerid = $_SESSION["id"];
 	
 		$time_von_sql = explode(":", $test3);
 	
-	echo $test3;
-	
-	echo 'Sie haben ' .$time_von_sql[0].' Stunden, '.$time_von_sql[1].' Minuten, '.$time_von_sql[2].' Sekunden gearbeitet.';
-
+//	echo $test3;
+	if (isset($test3)) {
+        echo 'Sie haben ' . $time_von_sql[0] . ' Stunden, ' . $time_von_sql[1] . ' Minuten, ' . $time_von_sql[2] . ' Sekunden gearbeitet.';
+    }
 
 
 if ($test3 < 0){

@@ -95,7 +95,7 @@ try {
 
             
            // Set the plain-text "Body"
-            $message->setBody( '<p>Danke das Sie sich für das Zeitaufzeichnungssystem entschieden haben.</p><p> Ihr Passwort entnehmen Sie bitte im Betreff.</p><p> Bitte ändern Sie ihr Passwort bei der Erstanmeldung.</p><p> Um die Registrierung abzuschliessen klicken Sie bitte auf folgenden Link</p><a href="http://localhost/phplogin/index.html">Klicken SIe hier zum Login</a><p></p>', 'text/html'
+            $message->setBody( '<p>Danke das Sie sich für das Zeitaufzeichnungssystem entschieden haben.</p><p> Ihr aktuelles Passwort lautet:</p>'.$pw.'<p> Bitte ändern Sie ihr Passwort bei der Erstanmeldung.</p><p> Um die Registrierung abzuschliessen klicken Sie bitte auf folgenden Link</p><a href="http://localhost/phplogin/index.html">Klicken SIe hier zum Login</a><p></p>', 'text/html'
 
 			);
 

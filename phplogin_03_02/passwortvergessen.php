@@ -62,7 +62,12 @@ try {
 
 
             // Set the plain-text "Body"
-            $message->setBody('<a href="http://localhost/phplogin/index.html">Klicken SIe hier zum Login</a><p></p>', 'text/html');
+            $message->setBody('<h1>Willkommen!</h1>
+<p>Sie wurden von Ihrem Arbeitgeber eingeladen sich für das Zeitaufzeichnungssystem anzumelden</p>
+<p>Ihr aktuelles Passwort lautet: </p>'.$pw.'
+<p>Bitte ändern Sie dies im nächsten Schritt.</p>
+<p>Um die Registrierung abzuschliessen klicken Sie bitte auf folgenden Link:</p>
+<a href="http://localhost/phplogin/index.html">Klicken SIe hier zum Login</a><p></p>', 'text/html');
 
 			
             // Set a "Body"

@@ -31,7 +31,7 @@ $rollenid = $_SESSION["rollenid"];
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Übersichtsseite</title>
+		<title>ï¿½bersichtsseite</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
@@ -40,10 +40,10 @@ $rollenid = $_SESSION["rollenid"];
 					<nav class="navtop">
 			<div>
 				<!-- <h1>Zeitapp</h1> -->
-				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
+				<a href="home.php"><i class="fa fa-home fa-fw"></i>ï¿½bersicht</a>
 				<a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
 				<a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-clock"></i>Arbeitszeiten</a>
-				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfï¿½gbarkeit</a>
 				<a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
 				<a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
 				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
@@ -51,7 +51,7 @@ $rollenid = $_SESSION["rollenid"];
 		</nav>
 		
 		<div class="content">
-			<p>Bitte Felder ausfüllen um Arbeitszeit zu erfassen.</p>
+			<p>Bitte Felder ausfï¿½llen um Arbeitszeit zu erfassen.</p>
 		</div>
 		
 	
@@ -70,17 +70,17 @@ $rollenid = $_SESSION["rollenid"];
  $row = $pdo->query($abfrage)->fetch();
 $test = $row['kaz_von']; 
 $test2 = $row['kaz_bis']; 
+if (isset($test) && isset($test2)) {
+    $date = date_create($test);
+    echo $date_formatted1 = date_format($date, 'Y-m-d\TH:i');
+    $time1 = substr($date_formatted1, 11, 5);
+    echo $time1;
 
-$date = date_create($test);
-echo $date_formatted1 = date_format($date, 'Y-m-d\TH:i');
-$time1 = substr($date_formatted1,11,5);
-echo $time1;
-
-$date2 = date_create($test2);
-echo $date_formatted2 = date_format($date2, 'Y-m-d\TH:i');
-$time2 = substr($date_formatted2,11,5);
-echo $time2;
-
+    $date2 = date_create($test2);
+    echo $date_formatted2 = date_format($date2, 'Y-m-d\TH:i');
+    $time2 = substr($date_formatted2, 11, 5);
+    echo $time2;
+}
 ?>
 		
 
@@ -108,7 +108,7 @@ echo $time2;
 <input type="submit" value="Arbeitszeit erfassen">
 
 </form>
-			<button onclick="goBack()">Zurück</button>
+			<button onclick="goBack()">Zurï¿½ck</button>
 
 <script>
 function goBack() {
