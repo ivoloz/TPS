@@ -1,0 +1,71 @@
+
+
+	<?php 
+	
+	// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit();
+}
+
+
+$benutzerid = $_SESSION["id"];
+
+	
+$rollenid = $_SESSION["rollenid"];
+
+
+?>
+	
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Übersichtsseite</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+
+				<nav class="navtop">
+			<div>
+				<!-- <h1>Zeitapp</h1> -->
+				<a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
+				<a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
+				<a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
+				<a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+				<a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
+				<a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
+				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
+			</div>
+		</nav>
+<div class="register">
+	<h1>Erstanmeldung/Passwortänderung.</h1>
+	<h1> Bitte ändern Sie ihr Passwort.</h1>
+	<br>
+
+<form action="passwort.php" method="post" >
+    altes Passwort:<br>
+	<input type="password" name="passwort_alt" class="input2" /></br>
+    neues Passwort:<br>
+	<input type="password" name="passwort_neu" class="input2"/></br>
+	
+					<button onclick="goBack()">Abbrechen</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <input type="submit" value="Bestätigen" id="input"/>
+    </form>
+
+
+
+
+
+</div>
+</body>
+</html>
