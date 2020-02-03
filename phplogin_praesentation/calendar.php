@@ -38,11 +38,6 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
     exit();
 }
-// If the user logs in first time or has not changed his password redirect to the password page...
-if (!isset($_SESSION['abfrage'])) {
-	header('Location: passwort.html');
-	exit();
-}
 
 
 $benutzerid = $_SESSION["id"];

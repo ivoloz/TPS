@@ -8,12 +8,6 @@ if (!isset($_SESSION['loggedin'])) {
     exit();
 }
 
-// If the user logs in first time or has not changed his password redirect to the password page...
-if (!isset($_SESSION['abfrage'])) {
-	header('Location: passwort.html');
-	exit();
-}
-
 
 $benutzerid = $_SESSION["id"];
 
@@ -27,17 +21,17 @@ $rollenid = $_SESSION["rollenid"];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kalender</title>
-<!--    <link href="style.css" rel="stylesheet" type="text/css">-->
+<link href="style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link href="calendar.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="loggedin">
+<body>
 
 <nav class="navtop">
     <div>
         <a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
         <a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
-        <a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-clock"></i>Arbeitszeiten</a>
+        <a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
         <a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
         <a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
         <a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
@@ -53,7 +47,6 @@ $rollenid = $_SESSION["rollenid"];
 </form>
 <div id="Calendar"> </div>
 <div id="Events"> </div>
-
 
 <script language="javascript" src="calendar.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
