@@ -48,7 +48,7 @@ $rollenid = $_SESSION["rollenid"];
 		</nav>
 
 
-
+<div class="content">
 <div class="formular">
 <label>Bitte Felder ausfüllen um Aufgabe einem Mitarbeiter zuzuweisen.</label></br>
 			<form action="einfachzuweisungausfuhr.php" method="post" autocomplete="on">
@@ -98,14 +98,17 @@ if($result != "zero")
 
 </form>
 </div>
-	<button onclick="goBack()">Zurück</button>
+
+</body>
+</html>
+		<button onclick="goBack()">Zurück</button>
 
 <script>
 function goBack() {
   window.history.back();
 }
 </script>
-</body>
-</html>
+</div>
+
 
    <?php endif; ?>

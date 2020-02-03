@@ -17,6 +17,7 @@ $sql = "CREATE TABLE monatsabrechnung(
   erfassungsmonat varchar(30) NOT NULL,
   geleistete_gesamtstunden varchar(30) NOT NULL,
   max_gesamtstunden varchar(30) NOT NULL,
+  abgerechnet int(11),
   CONSTRAINT FOREIGN KEY (benutzerid) REFERENCES benutzer(benutzerid)
 
 )";

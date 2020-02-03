@@ -23,6 +23,7 @@ $sql = "CREATE TABLE benutzer(
   kaz_bis varchar(30) NOT NULL,
   max_gesamtstunden varchar(30) NOT NULL,
   max_ueberstunden varchar(30) NOT NULL,
+  init_passwort varchar(256) NOT NULL,
   CONSTRAINT FOREIGN KEY (rollenid) REFERENCES benutzerrolle(rollenid),
     CONSTRAINT FOREIGN KEY (arbeitgeberid) REFERENCES benutzer(benutzerid)
 )";
