@@ -5,23 +5,32 @@
 <meta charset="utf-8">
 <title>Formular</title>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<div class="formular">
-<label>Bitte geben Sie ihre Email-Adresse ein.</label></br>
+<nav class="navtop">
+    <div>
+        <!-- <h1>Zeitapp</h1> -->
+        <a href="home.php"><i class="fa fa-home fa-fw"></i>Übersicht</a>
+        <a href="kalender.php"><i class="fa fa-calendar"></i>Kalender</a>
+        <a href="erfasstearbeitszeitausgabe.php"><i class="fa fa-user-circle"></i>Arbeitszeiten</a>
+        <a href="nichtverfugbarkeitausgabe.php"><i class="fa fa-thumbs-down"></i>Nicht-Verfügbarkeit</a>
+        <a href="aufgabeausgabe.php"><i class="fa fa-tasks"></i>Aufgaben</a>
+        <a href="meetingausgabe.php"><i class="fa fa-user-circle"></i>Meetings</a>
+        <a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
+    </div>
+</nav>
 
-<form action="passwortvergessen.php" method="post" >
-    Email:<input type="text" name="email" /></br>
+<div class="formular3">
+<h1>Bitte geben Sie ihre Email-Adresse ein.</h1></br>
 
-    <input type="submit" value="Bestätigen" />
-    </form>
+    <form action="passwortvergessen.php" method="post" >
+     <label>E-Mail </label>
+        <input type="text" name="email" placeholder="E-Mail bitte angeben!" /></br>
 
-
-
-
-
+     <input type="submit" value="Bestätigen" />
+     </form>
 </div>
 </body>
 </html>

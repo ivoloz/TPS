@@ -27,7 +27,7 @@ $rollenid = $_SESSION["rollenid"];
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	</head>
-	<body class="loggedin">
+	<body class="loggedin2">
 
 				<nav class="navtop">
 			<div>
@@ -41,12 +41,16 @@ $rollenid = $_SESSION["rollenid"];
 				<a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
 			</div>
 		</nav>
-<div class="formular">
-<label>Erstanmeldung/Passwortänderung. Bitte ändern Sie ihr Passwort.</label></br>
+<div class="formular2">
+	<label>Erstanmeldung/Passwortänderung.</label> <br>
+	<label> Bitte ändern Sie ihr Passwort.</label></br>
+	<br>
 
 <form action="passwort.php" method="post" >
-    altes Passwort:<input type="password" name="passwort_alt" /></br>
-    neues Passwort:<input type="password" name="passwort_neu" /></br>
+    altes Passwort:<br>
+	<input type="password" name="passwort_alt" class="input2" /></br>
+    neues Passwort:<br>
+	<input type="password" name="passwort_neu" class="input2"/></br>
 	
 					<button onclick="goBack()">Abbrechen</button>
 
@@ -55,7 +59,7 @@ function goBack() {
   window.history.back();
 }
 </script>
-    <input type="submit" value="Bestätigen" />
+    <input type="submit" value="Bestätigen" id="input"/>
     </form>
 
 
