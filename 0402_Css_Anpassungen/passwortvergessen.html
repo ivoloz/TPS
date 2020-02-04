@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Formular</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="formPWVergessen">
+<label><p>Passwort zurücksetzen.</p><p>Bitte geben Sie um das Passwort zurückzusetzen ihre E-Mail-Adresse ein.</p><p>Sie erhalten in Kürze eine Nachricht.</label></br>
+
+
+<form action="passwortvergessen.php" method="post" >
+    Email:<input type="text" name="email" /></br>
+
+    <input type="submit" value="Bestätigen" />
+
+	
+		<button onclick="goBack()">Zurück</button>
+</form>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+
+
+
+
+</div>
+</body>
+</html>
