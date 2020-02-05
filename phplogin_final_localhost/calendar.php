@@ -56,6 +56,7 @@ if(strlen($cMonth)<2) {
 $check1 = false;
 $check2 = false;
 $check3 = false;
+$bid = false;
 if (isset($_REQUEST['check1'] )) {
     $check1 = $_REQUEST['check1'];
 }
@@ -65,10 +66,13 @@ if (isset($_REQUEST['check2'] )) {
 if (isset($_REQUEST['check3'] )) {
     $check3 = $_REQUEST['check3'];
 }
+if (isset($_REQUEST['bid'] )) {
+    $bid = $_REQUEST['bid'];
+}
 if ($rollenid == 2) {
     if ($check1 == "true") {
 // generate an array with all dates with events
-        $sql1 = "SELECT aufgabeid, DATE(beginn) as beginn, DATE(ende) as ende, bezeichnung, beschreibung, status, prioritaet FROM aufgabe WHERE beginn LIKE '" . $cYear . "-" . $cMonth . "-%' AND ende LIKE '" . $cYear . "-" . $cMonth . "-%'";
+        $sql1 ="SELECT Date(beginn) as beginn, DATE(ende) as ende, bezeichnung, beschreibung FROM aufgabe as a, benutzerereignis as be WHERE beginn LIKE '" . $cYear . "-" . $cMonth . "-%' AND ende LIKE '" . $cYear . "-" . $cMonth . "-%' AND a.aufgabeid = be.aufgabeid AND be.benutzerid  = '$bid'";
 
         $sql_result1 = $conn->query($sql1);
         if ($sql_result1->num_rows > 0) {
@@ -100,7 +104,7 @@ if ($rollenid == 2) {
         }
     }
     if ($check2 == "true") {
-        $sql2 = "SELECT meetingid, DATE(beginn) as beginn, DATE(ende) as ende, bezeichnung, beschreibung FROM meeting WHERE beginn LIKE '" . $cYear . "-" . $cMonth . "-%' AND ende LIKE '" . $cYear . "-" . $cMonth . "-%'";
+        $sql2 = "SELECT Date(beginn) as beginn, DATE(ende) as ende, bezeichnung, beschreibung FROM meeting as m, benutzerereignis as be WHERE beginn LIKE '" . $cYear . "-" . $cMonth . "-%' AND ende LIKE '" . $cYear . "-" . $cMonth . "-%' AND m.meetingid = be.meetingid AND be.benutzerid = '$bid'";
         $sql_result2 = $conn->query($sql2);
 //echo $sql2;
         if ($sql_result2->num_rows > 0) {
@@ -132,7 +136,7 @@ if ($rollenid == 2) {
         }
     }
     if ($check3 == "true") {
-        $sql3 = "SELECT nichtverfugbarkeitid, DATE(beginn) as beginn, DATE(ende) as ende, bezeichnung, beschreibung FROM nichtverfugbarkeit WHERE beginn LIKE '" . $cYear . "-" . $cMonth . "-%' AND ende LIKE '" . $cYear . "-" . $cMonth . "-%'";
+        $sql3 =  "SELECT Date(beginn) as beginn, DATE(ende) as ende, bezeichnung, beschreibung FROM nichtverfugbarkeit as nv, benutzerereignis as be WHERE beginn LIKE '" . $cYear . "-" . $cMonth . "-%' AND ende LIKE '" . $cYear . "-" . $cMonth . "-%' AND nv.nichtverfugbarkeitid = be.nichtverfugbarkeitid AND be.benutzerid = '$bid'";
         $sql_result3 = $conn->query($sql3);
         if ($sql_result3->num_rows > 0) {
 // output data of each row
@@ -279,7 +283,7 @@ if ($prev_month < 10) $prev_month = '0' . $prev_month;
 if ($next_month < 10) $next_month = '0' . $next_month;
 ?>
 <center>
-<table width="100%" border="3">
+<table width="100%" border="3" >
     <tr>
         <td class="mNav"><a href="javascript:LoadMonth('<?php echo $prev_month; ?>', '<?php echo $prev_year; ?>')">&lt;&lt;</a>
         </td>
@@ -318,8 +322,7 @@ if ($next_month < 10) $next_month = '0' . $next_month;
         if (array_key_exists($cYear . "-" . $cMonth . "-" . $current_day, $events)) {
             $css = 'withevent';
         //    $click = "onclick=\"LoadEvents('" . $cYear . "-" . $cMonth . "-" . $current_day . "')\"";
-            $click = "onclick=\"LoadEvents('" . $cYear . "-" . $cMonth . "-" . $current_day . "', $check1, $check2, $check3)\"";
-
+            $click = "onclick=\"LoadEvents('" . $cYear . "-" . $cMonth . "-" . $current_day . "', $check1, $check2, $check3, $bid)\"";
         } else {
             $css = 'noevent';
             $click = '';

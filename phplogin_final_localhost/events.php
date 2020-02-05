@@ -47,6 +47,7 @@ $rollenid = $_SESSION["rollenid"];
 $check1 = false;
 $check2 = false;
 $check3 = false;
+$bid = false;
 if (isset($_REQUEST['check1'] )) {
     $check1 = $_REQUEST['check1'];
 }
@@ -56,6 +57,10 @@ if (isset($_REQUEST['check2'] )) {
 if (isset($_REQUEST['check3'] )) {
     $check3 = $_REQUEST['check3'];
 }
+if (isset($_REQUEST['bid'] )) {
+    $bid = $_REQUEST['bid'];
+}
+
 //echo $check1.$check2.$check3;
 //$check1=$check2=$check3 = "true";
 //set empty events array
@@ -63,7 +68,7 @@ if ($rollenid == 2) {
     if ($check1 == "true") {
   //     echo 'sql1';
         $sql1 = 'SELECT * FROM aufgabe as a, benutzerereignis as be, benutzer as b
-WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AND a.aufgabeid = be.aufgabeid AND be.benutzerid = b.benutzerid ';
+WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AND a.aufgabeid = be.aufgabeid AND be.benutzerid = b.benutzerid and b.benutzerid = "' . $bid . '" ';
 
 //SELECT * FROM aufgabe WHERE beginn >= "2020-01-27 00:00:00" AND ende <= "2020-01-27 23:59:59"
 //echo $sql1;
@@ -86,7 +91,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
     }
     if ($check2 == "true") {
         $sql2 = 'SELECT * FROM meeting as m, benutzerereignis as be,  benutzer as b
-WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AND m.meetingid = be.meetingid AND be.benutzerid = b.benutzerid';
+WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AND m.meetingid = be.meetingid AND be.benutzerid = b.benutzerid and b.benutzerid = "' . $bid . '" ';
         $sql_result2 = $connection->query($sql2);
 
         if ($sql_result2->num_rows > 0) {
@@ -105,7 +110,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
     }
     if ($check3 == "true") {
         $sql3 = 'SELECT * FROM nichtverfugbarkeit as n, benutzerereignis as be, benutzer as b
- WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AND n.nichtverfugbarkeitid = be.nichtverfugbarkeitid AND be.benutzerid = b.benutzerid ';
+ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AND n.nichtverfugbarkeitid = be.nichtverfugbarkeitid AND be.benutzerid = b.benutzerid and b.benutzerid = "' . $bid . '"';
         $sql_result3 = $connection->query($sql3);
 
         if ($sql_result3->num_rows > 0) {

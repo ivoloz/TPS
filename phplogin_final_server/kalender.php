@@ -48,6 +48,25 @@ $rollenid = $_SESSION["rollenid"];
     <input class="checkbox" type="checkbox" name="check1" value="Ja" >Aufgaben
     <input class="checkbox" type="checkbox" name="check2" value="Ja" >Meetings
     <input class="checkbox" type="checkbox" name="check3" value="Ja" >Nichtverfugbarkeiten
+    <select id="auswahl" name="auswahl" size="1">
+
+        <?php
+        include 'crud.php';
+        $sql = "SELECT benutzerid ,email FROM `benutzer` where rollenid=1";
+        $result = selectdata($sql);
+        if($result != "zero")
+        {
+
+            while($row = $result->fetch_assoc()){
+
+                echo "<option  value=".$row['benutzerid']."> ".$row['email']."</option>";
+            }
+        }
+
+        ?>
+    </select>Mitarbeiterauswahl
+
+
 <input type="button" name="formSubmit" value="Filter anwenden" onclick="submitForm()" >
 </form>
 <div id="Calendar"> </div>
@@ -61,6 +80,13 @@ $rollenid = $_SESSION["rollenid"];
         var form = document.querySelectorAll(".checkbox");
 
         //var dataString = [form[0].checked,form[1].checked,form[2].checked,];
+        var x=document.getElementById("auswahl");
+
+        for (var i = 0; i < x.options.length; i++) {
+            if(x.options[i].selected ==true){
+               var bid = x.options[i].value;
+            }
+        }
 
         var monthBox = document.querySelector(".cMonth").innerHTML;
         var month = monthBox.split(" ")[0];
@@ -102,6 +128,30 @@ $rollenid = $_SESSION["rollenid"];
             case "Dezember":
                 month = "12";
                 break;
+            case "January":
+                month = "01";
+                break;
+            case "February":
+                month = "02";
+                break;
+            case "March":
+                month = "03";
+                break;
+            case "May":
+                month = "05";
+                break;
+            case "June":
+                month = "06";
+                break;
+            case "July":
+                month = "07";
+                break;
+            case "October":
+                month = "10";
+                break;
+            case "December":
+                month = "12";
+                break;
             default:
                 month = "01";
                 break;
@@ -112,7 +162,8 @@ $rollenid = $_SESSION["rollenid"];
             check2: form[1].checked,
             check3: form[2].checked,
             month: month,
-            year: year
+            year: year,
+            bid: bid
         }
         console.log(dataObject);
         $.ajax({
@@ -130,79 +181,7 @@ $rollenid = $_SESSION["rollenid"];
 
         return false;
     }
-function submitEvents(){
-    var form = document.querySelectorAll(".checkbox");
-      var date = document.querySelector(".withevent").innerHTML;
- //     var date = document.querySelector(".noevent").innerHTML;
-     //var dataString = [form[0].checked,form[1].checked,form[2].checked,];
-    var monthBox = document.querySelector(".cMonth").innerHTML;
-    var month = monthBox.split(" ")[0];
-    var year = monthBox.split(" ")[1];
-    switch (monthBox.split(" ")[0]) {
-        case "Januar":
-            month = "01";
-            break;
-        case "Februar":
-            month = "02";
-            break;
-        case "März":
-            month = "03";
-            break;
-        case "April":
-            month = "04";
-            break;
-        case "Mai":
-            month = "05";
-            break;
-        case "Juni":
-            month = "06";
-            break;
-        case "Juli":
-            month = "07";
-            break;
-        case "August":
-            month = "08";
-            break;
-        case "September":
-            month = "09";
-            break;
-        case "Oktober":
-            month = "10";
-            break;
-        case "November":
-            month = "11";
-            break;
-        case "Dezember":
-            month = "12";
-            break;
-        default:
-            month = "01";
-            break;
-    }
 
-      var dataObject = {
-          check1 : form[0].checked,
-          check2 : form[1].checked,
-          check3 : form[2].checked,
-          month : month,
-          year : year,
-          date : date
-      }
-      console.log(dataObject);
-      $.ajax({
-          type:'POST',
-          url:'events.php',
-          data: dataObject,
-          success: function(data){
-              $('#myResponse').html(data);
-              console.log(data);
- //             document.querySelector("#Calendar").innerHTML = data;
-              document.querySelector("#Events").innerHTML = data;
-          }
-      });
-
-        return false;
-}
 </script>
 </body>
 </html>

@@ -32,10 +32,10 @@ function LoadMonth(month, year) {
 	ajaxpage("calendar.php?month="+month+"&year="+year, "Calendar")
 }
 
-function LoadEvents(date, check1, check2, check3) {
+function LoadEvents(date, check1, check2, check3, bid) {
 
 //	ajaxpage("events.php?date="+date, "Events")
-	ajaxpage("events.php?date="+date+"&check1="+check1+"&check2="+check2+"&check3="+check3, "Events")
+	ajaxpage("events.php?date="+date+"&check1="+check1+"&check2="+check2+"&check3="+check3+"&bid="+bid, "Events")
 }
 
 LoadMonth();
