@@ -1,15 +1,19 @@
 body {
-	background-color: #ffffff;
+	background-color: #f3f7f3;
 }
 
 #Calendar {
 	width:1000px;
-	position: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #Calendar td {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:16px;
+	height: 60px;
+	width: 100px;
 }
 
 #Calendar .cMonth {
@@ -20,13 +24,13 @@ body {
 #Calendar .wDays {
 	font-weight:bold;
 	text-align:center;
-	background-color:#CCC;
+	background-color: cornflowerblue;
 }
 
 #Calendar .mNav {
 	font-weight:bold;
 	text-align:center;
-	background-color:#CCC;
+	background-color:cornflowerblue;
 }
 
 #Calendar table td a {
@@ -41,7 +45,7 @@ body {
 
 #Calendar .withevent {
 	text-align:center;
-	background-color:#CCC;
+	background-color: greenyellow;
 	color:#000;
 	cursor:pointer;
 }
@@ -55,58 +59,37 @@ body {
 
 #Events {
 	width:1000px;
+	margin-left: 175px;
 }
 
+#Events h1 {
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:16px;
+		font-weight:bold;
+		margin-top:20px;
+	text-decoration: underline;
+	}
 #Events h2 {
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
+	font-size:14px;
 	font-weight:bold;
 	margin-top:10px;
+
 }
 
 #Events span {
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
+	font-size:14px;
+
 }
 #Events p {
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
+	font-size:13px;
 }
-/*
-.navtop {
-	background-color: #2f3947;
-	height: 60px;
-	width: 100%;
-	border: 0;
+.formular{
+	margin-top: 10px;
+	margin-bottom: 10px;
+ margin-left: 400px;
+
 }
-.navtop div {
-	display: flex;
-	margin: 0 auto;
-	width: 1000px;
-	height: 100%;
-}
-.navtop div h1, .navtop div a {
-	display: inline-flex;
-	align-items: center;
-}
-.navtop div h1 {
-	flex: 1;
-	font-size: 24px;
-	padding: 0;
-	margin: 0;
-	color: #eaebed;
-	font-weight: normal;
-}
-.navtop div a {
-	padding: 0 20px;
-	text-decoration: none;
-	color: #c1c4c8;
-	font-weight: bold;
-}
-.navtop div a i {
-	padding: 2px 8px 0 0;
-}
-.navtop div a:hover {
-	color: #eaebed;
-}*/
 

@@ -71,7 +71,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
 
         if ($sql_result1->num_rows > 0) {
 
-            echo "<h2>" . "Aufgaben:" . "</h2>";
+            echo "<h1>" . "Aufgaben:" . "</h1>";
             while ($row = $sql_result1->fetch_assoc()) {
                 $beginn = strtotime($row['beginn']);
                 $beginn = date('d:m:yy:h:i', $beginn);
@@ -91,7 +91,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
 
         if ($sql_result2->num_rows > 0) {
             // output data of each row
-            echo "<h2>" . "Meetings:" . "</h2>";
+            echo "<h1>" . "Meetings:" . "</h1>";
             while ($row = $sql_result2->fetch_assoc()) {
                 $beginn = strtotime($row['beginn']);
                 $beginn = date('d:m:yy:h:i', $beginn);
@@ -110,7 +110,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
 
         if ($sql_result3->num_rows > 0) {
             // output data of each row
-            echo "<h2>" . "Nichtverfugbarkeiten:" . "</h2>";
+            echo "<h1>" . "Nichtverfugbarkeiten:" . "</h1>";
             while ($row = $sql_result3->fetch_assoc()) {
                 $beginn = strtotime($row['beginn']);
                 $beginn = date('d:m:yy:h:i', $beginn);
@@ -134,7 +134,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
 
         if ($sql_result4->num_rows > 0) {
             // output data of each row
-            echo "<h2>" . "Aufgaben:" . "</h2>";
+            echo "<h1>" . "Aufgaben:" . "</h1>";
             while ($row = $sql_result4->fetch_assoc()) {
 
                 $beginn = strtotime($row['beginn']);
@@ -155,7 +155,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
 
         if ($sql_result5->num_rows > 0) {
             // output data of each row
-            echo "<h2>" . "Meetings:" . "</h2>";
+            echo "<h1>" . "Meetings:" . "</h1>";
             while ($row = $sql_result5->fetch_assoc()) {
                 $beginn = strtotime($row['beginn']);
                 $beginn = date('d:m:yy:h:i', $beginn);
@@ -175,7 +175,7 @@ WHERE beginn <= "' . $date . ' 23:59:59" AND ende >= "' . $date . ' 00:00:00" AN
 
         if ($sql_result6->num_rows > 0) {
             // output data of each row
-            echo "<h2>" . "Nichtverfugbarkeiten:" . "</h2>";
+            echo "<h1>" . "Nichtverfugbarkeiten:" . "</h1>";
             while ($row = $sql_result6->fetch_assoc()) {
                 $beginn = strtotime($row['beginn']);
                 $beginn = date('d:m:yy:h:i', $beginn);
