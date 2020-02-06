@@ -43,7 +43,7 @@ $rollenid = $_SESSION["rollenid"];
         <a href="profile.php"><i class="fa fa-cog fa-fw"></i>Einstellungen</a>
     </div>
 </nav>
-
+<?php if ($rollenid == 2) {?>
 <form class="formular">
     <input class="checkbox" type="checkbox" name="check1" value="Ja" >Aufgaben
     <input class="checkbox" type="checkbox" name="check2" value="Ja" >Meetings
@@ -183,5 +183,123 @@ $rollenid = $_SESSION["rollenid"];
     }
 
 </script>
+<?php }else { ?>
+    <form class="formular">
+    <input class="checkbox" type="checkbox" name="check1" value="Ja" >Aufgaben
+    <input class="checkbox" type="checkbox" name="check2" value="Ja" >Meetings
+    <input class="checkbox" type="checkbox" name="check3" value="Ja" >Nichtverfugbarkeiten
+
+
+
+<input type="button" name="formSubmit" value="Filter anwenden" onclick="submitForm()" >
+</form>
+<div id="Calendar"> </div>
+<div id="Events"> </div>
+
+<script language="javascript" src="calendar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+    function submitForm() {
+        var form = document.querySelectorAll(".checkbox");
+
+        //var dataString = [form[0].checked,form[1].checked,form[2].checked,];
+
+
+        var monthBox = document.querySelector(".cMonth").innerHTML;
+        var month = monthBox.split(" ")[0];
+        var year = monthBox.split(" ")[1];
+        switch (monthBox.split(" ")[0]) {
+            case "Januar":
+                month = "01";
+                break;
+            case "Februar":
+                month = "02";
+                break;
+            case "März":
+                month = "03";
+                break;
+            case "April":
+                month = "04";
+                break;
+            case "Mai":
+                month = "05";
+                break;
+            case "Juni":
+                month = "06";
+                break;
+            case "Juli":
+                month = "07";
+                break;
+            case "August":
+                month = "08";
+                break;
+            case "September":
+                month = "09";
+                break;
+            case "Oktober":
+                month = "10";
+                break;
+            case "November":
+                month = "11";
+                break;
+            case "Dezember":
+                month = "12";
+                break;
+            case "January":
+                month = "01";
+                break;
+            case "February":
+                month = "02";
+                break;
+            case "March":
+                month = "03";
+                break;
+            case "May":
+                month = "05";
+                break;
+            case "June":
+                month = "06";
+                break;
+            case "July":
+                month = "07";
+                break;
+            case "October":
+                month = "10";
+                break;
+            case "December":
+                month = "12";
+                break;
+            default:
+                month = "01";
+                break;
+        }
+
+        var dataObject = {
+            check1: form[0].checked,
+            check2: form[1].checked,
+            check3: form[2].checked,
+            month: month,
+            year: year
+        }
+        console.log(dataObject);
+        $.ajax({
+            type: 'POST',
+            url: 'calendar.php',
+            data: dataObject,
+            success: function (data) {
+                $('#myResponse').html(data);
+                console.log(data);
+                document.querySelector("#Calendar").innerHTML = data;
+                //            submitEvents();
+            }
+
+        });
+
+        return false;
+    }
+
+</script>
+<?php } ?>
 </body>
 </html>
