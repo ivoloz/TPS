@@ -1,4 +1,4 @@
-
+﻿
 	  
 	<?php 
 	
@@ -120,7 +120,7 @@ if ($row['bestatigt']==1){
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>
@@ -216,7 +216,7 @@ echo "<tr>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>

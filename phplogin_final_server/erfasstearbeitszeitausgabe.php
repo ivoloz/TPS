@@ -1,4 +1,4 @@
-	  
+﻿	  
 	<?php 
 	
 	// We need to use sessions, so you should always start sessions using the below code.
@@ -141,7 +141,7 @@ echo "<td>" . $row['zeit']. "</td>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>
@@ -150,7 +150,14 @@ else
   <div class="content">
   <p>
   <a href="erfasstearbeitszeit1.php"><button>Neue Arbeitszeit erfassen</button></a></br>
-  </p>
+<button onclick="goBack()">Zurück</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+</p>
   </div>
    </body>
    </html>
@@ -237,7 +244,7 @@ echo "<td>" . $row['zeit']. "</td>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 

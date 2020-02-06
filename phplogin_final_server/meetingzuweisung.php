@@ -1,4 +1,4 @@
-	  
+﻿	  
 	<?php 
 	
 	// We need to use sessions, so you should always start sessions using the below code.
@@ -114,7 +114,7 @@ echo "<tr>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>

@@ -51,7 +51,7 @@ echo "<tr>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>

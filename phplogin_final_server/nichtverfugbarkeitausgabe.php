@@ -1,4 +1,4 @@
-
+﻿
 	  
 	<?php 
 	
@@ -105,7 +105,7 @@ echo "<tr>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>
@@ -196,7 +196,7 @@ echo "<tr>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>

@@ -1,4 +1,4 @@
-	<?php 
+﻿	<?php 
 	
 	// We need to use sessions, so you should always start sessions using the below code.
 session_start();
@@ -116,7 +116,7 @@ echo "<td>" . $row['benutzerid']."</td>";
 else
 {
 	
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>
@@ -222,7 +222,7 @@ echo "<tr>";
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 
 ?>

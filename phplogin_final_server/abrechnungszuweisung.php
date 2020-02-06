@@ -1,4 +1,4 @@
-	  
+﻿	  
 	<?php 
 	
 	// We need to use sessions, so you should always start sessions using the below code.
@@ -110,7 +110,7 @@ if ($row['abgerechnet']==1){
 }
 else
 {
- echo $result;
+ echo "Noch keine Eintraege vorhanden.";
 }
 ?>
  </table>
